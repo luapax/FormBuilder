@@ -49,3 +49,21 @@ export const sortByNumber = (a, b) => {
     return a1.length - b1.length;
 
 }
+
+export const createElement = (tag, className, text) => {
+
+    const element = document.createElement(tag)
+    if (className) element.classList.add(className)
+    if (text) element.textContent = text
+
+    return element
+
+}
+
+
+export const addSelectOption = (selectDOMElement, value, text) => {
+    const option = document.createElement("option");
+    option.text = text;
+    option.value = value
+    selectDOMElement.add(option);
+}

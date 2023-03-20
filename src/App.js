@@ -1,8 +1,5 @@
 import './App.scss';
-import { countPoints } from './common/Helpers'
-import { LSManager } from './common/Helpers';
-import { sortByNumber } from './common/Helpers';
-
+import { countPoints, LSManager, sortByNumber, createElement, addSelectOption } from './common/Helpers'
 
 //Class Model = data manipulations
 class Model {
@@ -87,12 +84,44 @@ class View {
     }
 
     createQuestionDOMElement = (question) => {
-        const div = document.createElement("div");
-        div.classList.add('question')
-        div.setAttribute("questionType", question.type);
-        div.setAttribute("questionId", question.id);
-        div.innerHTML = question.id + "<br> " + question.text + "<br> " + question.type + "<br> "
+        //Question box
+        const divQuestion = document.createElement("div");
+        divQuestion.classList.add('divQuestion')
+        divQuestion.setAttribute("questionType", question.type);
+        divQuestion.setAttribute("questionId", question.id);
 
+        //Inside of question box
+        const divLabels = createElement('div', 'divLabels')
+        const labelCondition = createElement('label', '', 'Condition')
+        const labelQuestion = createElement('label', '', question.id + " " + 'Question')
+        const labelType = createElement('label', '', 'Type')
+        divLabels.append(labelCondition, labelQuestion, labelType)
+
+        const divInputs = createElement('div', 'divInputs')
+
+        const divCondition = createElement('div', 'divCondition')
+        const selectCondition = createElement('select', 'selectCondition')
+        addSelectOption(selectCondition, "Greater than", "Greater than")
+        addSelectOption(selectCondition, "Equals", "Equals")
+        addSelectOption(selectCondition, "Less than", "Less than")
+        const inputCondition = createElement('input', 'inputCondition')
+        divCondition.append(selectCondition, inputCondition)
+
+        const inputQuestion = createElement('input', '', question.text)
+        inputQuestion.setAttribute("placeholder", 'Write your question..');
+        divInputs.append(divCondition, inputQuestion)
+
+        const mainSelect = document.createElement("select")
+        addSelectOption(mainSelect, "Yes/No", "Yes/No")
+        addSelectOption(mainSelect, "Text", "Text")
+        addSelectOption(mainSelect, "Number", "Number")
+        divInputs.append(inputQuestion, mainSelect)
+        mainSelect.onchange = (e) => {
+            divQuestion.setAttribute('questiontype', e.target.value)
+        }
+
+
+        const divBtn = createElement('div', 'divBtn')
         const addSubQBtn = document.createElement('button')
         addSubQBtn.textContent = "Add subquestion"
 
@@ -105,11 +134,12 @@ class View {
         removeBtn.onclick = () => this.removeQuestion(question.id)
         const leftDistance = countPoints(question.id)
 
-        div.append(addSubQBtn, removeBtn)
+        divBtn.append(addSubQBtn, removeBtn)
+        divQuestion.append(divLabels, divInputs, divBtn)
 
-        div.style.marginLeft = `${leftDistance * 10}px`
+        divQuestion.style.marginLeft = `${leftDistance * 10}px`
 
-        this.questionsListDOMElement.append(div)
+        this.questionsListDOMElement.append(divQuestion)
 
     }
 
