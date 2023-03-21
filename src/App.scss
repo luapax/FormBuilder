@@ -10,130 +10,207 @@ body {
 body {
     font-family: 'Montserrat', sans-serif;
     padding: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     // background: linear-gradient(rgba(194, 223, 231, 0.6), rgba(24, 135, 214, 0.6));
     // background: linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
 }
 
-h2 {
-    padding-left: 5px;
-
-    &::after {
-        content: '';
-        display: flex;
-        width: 35%;
-        border-radius: 5px;
-        border: 1px solid #bdb1b2;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.062);
-    }
-}
-
-label {
-    font-size: 12px;
-}
-
-select,
-input {
-    font-size: 11px;
-}
-
-button {
-    width: 120px;
-    background: #27AE60;
-    // font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 1px;
-    cursor: pointer;
-    padding: 10px;
-    margin: 10px 5px;
-    text-decoration: none;
-    font-size: 12px;
-
-    &:hover,
-    &:focus {
-        box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
-    }
-}
-
-
-.divQuestion {
-    margin: 1rem;
-    border: 1px solid #27AE60;
-    padding: 10px;
+section {
+    text-align: center;
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    justify-content: space-evenly;
-    max-width: 500px;
-    background-color: #e3dfdf3a;
-    // box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    flex-direction: column;
+    align-items: center;
 
-    .divLabels {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        // color: #2C3E50;
-        font-weight: bold;
-
+    .mgmtPanel {
+        align-items: flex-start;
     }
 
-    .divInputs {
-        display: flex;
-        flex-direction: column;
-        margin: 0 20px;
-        justify-content: space-around;
-        max-width: 150px;
-        color: #2C3E50;
 
-        .inputCondition {
-            width: 30px;
+    h2 {
+        padding-left: 5px;
+
+        @media (min-width: 992px) {
+            font-size: 30px;
         }
 
-        .divCondition {
-            width: 170px;
+        &::after {
+            content: '';
+            display: flex;
+            width: 35%;
+            border-radius: 5px;
+            border: 1px solid #bdb1b2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.062);
         }
-
-        select,
-        input {
-            margin: 2px 0;
-            padding: 5px 2px;
-            color: #2C3E50;
-        }
-
-        select {
-            width: 100px;
-            margin-right: 12px;
-        }
-
-
-
     }
 
-    .divBtn {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    label {
+        font-size: 12px;
+    }
 
-        button {
-            width: 100px;
-            height: 30px;
+    select,
+    input {
+        font-size: 11px;
+    }
+
+    button {
+        width: 120px;
+        background: #27AE60;
+        // font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 1px;
+        cursor: pointer;
+        padding: 10px;
+        margin: 10px 5px;
+        text-decoration: none;
+        font-size: 12px;
+
+        @media (min-width: 992px) {
+            width: 168px;
             background: #27AE60;
             // font-weight: bold;
             color: white;
             border: 0 none;
             border-radius: 1px;
             cursor: pointer;
-            padding: 2px;
-            margin: 10px 5px;
+            padding: 14px;
+            margin: 14px 7px;
             text-decoration: none;
-            font-size: 11px;
+            font-size: 14px;
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
         }
     }
 
-}
 
-.footer {
-    padding-left: 5px;
-    position: relative;
-    padding-bottom: 0px;
+    .divQuestion {
+        margin: 1rem;
+        border: 1px solid #27AE60;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        justify-content: space-evenly;
+        max-width: 500px;
+        background-color: #e3dfdf3a;
+        // box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+
+        @media (min-width: 992px) {
+            padding: 14px;
+            min-width: 600px;
+
+        }
+
+        @media(max-width:768px) {
+            max-width: 400px;
+        }
+
+        .divLabels {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            // color: #2C3E50;
+            font-weight: bold;
+
+            label {
+                @media (min-width: 992px) {
+                    font-size: 15px;
+
+                }
+            }
+
+
+        }
+
+        .divInputs {
+            display: flex;
+            flex-direction: column;
+            margin: 0 20px;
+            justify-content: space-around;
+            max-width: 180px;
+            color: #2C3E50;
+
+            .inputCondition {
+                width: 30px;
+
+                @media (min-width: 992px) {
+                    width: 42px;
+
+                }
+            }
+
+            .divCondition {
+                display: flex;
+                justify-content: space-between;
+
+            }
+
+            select,
+            input {
+                margin: 2px 0;
+                padding: 5px 2px;
+                color: #2C3E50;
+                font-size: 13px;
+            }
+
+            select {
+                width: 100px;
+                margin-right: 12px;
+            }
+
+
+
+        }
+
+        .divBtn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            @media (min-width: 992px) {
+                min-width: 270px;
+
+
+            }
+
+            button {
+                width: 100px;
+                height: 30px;
+                background: #27AE60;
+                // font-weight: bold;
+                color: white;
+                border: 0 none;
+                border-radius: 1px;
+                cursor: pointer;
+                padding: 2px;
+                margin: 10px 5px;
+                text-decoration: none;
+                font-size: 11px;
+
+                @media (min-width: 992px) {
+                    width: 120px;
+                    height: 34px;
+                    padding: 3px;
+                    margin: 14px 4px;
+                    text-decoration: none;
+                    font-size: 13px;
+
+
+                }
+
+            }
+        }
+
+    }
+
+    .footer {
+        padding-left: 5px;
+        position: relative;
+        padding-bottom: 0px;
+    }
 }
