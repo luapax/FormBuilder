@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+$greencolor: #27AE60;
+
 html,
 body {
     height: 100%;
@@ -13,8 +15,6 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    // background: linear-gradient(rgba(194, 223, 231, 0.6), rgba(24, 135, 214, 0.6));
-    // background: linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
 }
 
 section {
@@ -31,10 +31,6 @@ section {
     h2 {
         padding-left: 5px;
 
-        @media (min-width: 992px) {
-            font-size: 30px;
-        }
-
         &::after {
             content: '';
             display: flex;
@@ -42,6 +38,10 @@ section {
             border-radius: 5px;
             border: 1px solid #bdb1b2;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.062);
+        }
+
+        @media (min-width: 992px) {
+            font-size: 30px;
         }
     }
 
@@ -56,8 +56,7 @@ section {
 
     button {
         width: 120px;
-        background: #27AE60;
-        // font-weight: bold;
+        background: $greencolor;
         color: white;
         border: 0 none;
         border-radius: 1px;
@@ -67,10 +66,14 @@ section {
         text-decoration: none;
         font-size: 12px;
 
+        &:hover,
+        &:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px $greencolor;
+        }
+
         @media (min-width: 992px) {
             width: 168px;
-            background: #27AE60;
-            // font-weight: bold;
+            background: $greencolor;
             color: white;
             border: 0 none;
             border-radius: 1px;
@@ -80,17 +83,12 @@ section {
             text-decoration: none;
             font-size: 14px;
         }
-
-        &:hover,
-        &:focus {
-            box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
-        }
     }
 
 
     .divQuestion {
         margin: 1rem;
-        border: 1px solid #27AE60;
+        border: 1px solid $greencolor;
         padding: 10px;
         display: flex;
         justify-content: flex-start;
@@ -98,12 +96,10 @@ section {
         justify-content: space-evenly;
         max-width: 500px;
         background-color: #e3dfdf3a;
-        // box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 
         @media (min-width: 992px) {
             padding: 14px;
             min-width: 600px;
-
         }
 
         @media(max-width:768px) {
@@ -114,17 +110,13 @@ section {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            // color: #2C3E50;
             font-weight: bold;
 
             label {
                 @media (min-width: 992px) {
                     font-size: 15px;
-
                 }
             }
-
-
         }
 
         .divInputs {
@@ -140,14 +132,12 @@ section {
 
                 @media (min-width: 992px) {
                     width: 42px;
-
                 }
             }
 
             .divCondition {
                 display: flex;
                 justify-content: space-between;
-
             }
 
             select,
@@ -162,9 +152,6 @@ section {
                 width: 100px;
                 margin-right: 12px;
             }
-
-
-
         }
 
         .divBtn {
@@ -174,15 +161,12 @@ section {
 
             @media (min-width: 992px) {
                 min-width: 270px;
-
-
             }
 
             button {
                 width: 100px;
                 height: 30px;
-                background: #27AE60;
-                // font-weight: bold;
+                background: $greencolor;
                 color: white;
                 border: 0 none;
                 border-radius: 1px;
@@ -199,13 +183,9 @@ section {
                     margin: 14px 4px;
                     text-decoration: none;
                     font-size: 13px;
-
-
                 }
-
             }
         }
-
     }
 
     .footer {
