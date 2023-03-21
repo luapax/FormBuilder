@@ -138,6 +138,10 @@ section {
             .divCondition {
                 display: flex;
                 justify-content: space-between;
+
+                input {
+                    width: 60px;
+                }
             }
 
             select,
@@ -159,8 +163,10 @@ section {
             align-items: center;
             justify-content: space-between;
 
-            @media (min-width: 992px) {
-                min-width: 270px;
+
+            @media (max-width: 992px) {
+                flex-direction: column;
+
             }
 
             button {

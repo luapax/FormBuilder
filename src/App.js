@@ -203,7 +203,7 @@ class View {
         divBtn.append(addSubQBtn, removeBtn)
         divQuestion.append(divLabels, divInputs, divBtn)
 
-        divQuestion.style.marginLeft = `${leftDistance * 10}px`
+        divQuestion.style.marginLeft = `${leftDistance * 30}px`
 
         this.questionsListDOMElement.append(divQuestion)
 
